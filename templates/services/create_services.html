@@ -1,0 +1,38 @@
+{% extends "base.html" %}
+
+{% block title %}
+  Agregar Servicio
+{% endblock %}
+
+{% block content %}
+  <h1>AGREGAR SERVICIO</h1>
+
+
+  {% if request.method == 'GET' %}
+  <section class="container my-2 bg-dark w-50 text-light p-2">
+    <form action="" method="POST" class="row g-3 p-3">
+        {% csrf_token %}
+        <div class="col-md">
+            <label for="validationDefault01" class="form-label">Nombre del servicio</label>
+            <input type="text" class="form-control" name="name" required>
+          </div>
+        <div class="col-md">
+            <label for="validationDefault02" class="form-label">Descripción</label>
+            <input type="text" class="form-control" name="description" required>
+          </div>
+        <div class="col-md">
+          <label for="inputEmail4" class="form-label">Precio</label>
+          <input type="number" class="form-control" name="price">
+        </div>
+        <div class="col-12">
+          <button type="submit" class="btn btn-primary">AGREGAR</button>
+        </div>
+      </form>
+   </section>
+
+   {% else %}
+        <h2>SERVICIO AGREGADO</h2>
+    {% endif %}
+
+
+    {% endblock %}
